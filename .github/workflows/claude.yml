@@ -35,6 +35,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          # Sonnet = buen equilibrio calidad/costo. Para gastar aún menos,
-          # cambia el modelo a claude-haiku-4-5-20251001
-          claude_args: "--model claude-sonnet-4-6 --max-turns 15"
+          # Haiku 4.5 = la opción más económica (~3x más barato que Sonnet),
+          # ideal para cambios de texto/HTML en este sitio.
+          # Si un cambio complejo sale mal, sube a: --model claude-sonnet-4-6
+          claude_args: "--model claude-haiku-4-5-20251001 --max-turns 10"
