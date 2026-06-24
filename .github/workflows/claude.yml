@@ -1,0 +1,44 @@
+name: Claude (editar el sitio con @claude)
+
+  # Cuando alguien escribe "@claude ..." en un Issue o comentario de este 
+  repositorio,
+  # Claude lee el sitio, hace el cambio y abre un Pull Request para revisar y 
+  publicar.
+  # Requiere el secret ANTHROPIC_API_KEY (ver GUIA_EDITAR_CON_CLAUDE.md).
+
+  on:
+    issue_comment:
+      types: [created]
+    pull_request_review_comment:
+      types: [created]
+    issues:
+      types: [opened, assigned]
+
+  permissions:
+    contents: write
+    pull-requests: write
+    issues: write
+
+  jobs:
+    claude:
+      # Solo se ejecuta si el texto incluye @claude (ahorra costos)
+      if: |
+        (github.event_name == 'issue_comment' && 
+  contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'pull_request_review_comment' && 
+  contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'issues' && contains(github.event.issue.body, 
+  '@claude'))
+      runs-on: ubuntu-latest
+      timeout-minutes: 15
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - name: Claude Code
+          uses: anthropics/claude-code-action@v1
+          with:
+            anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+            # Sonnet = buen equilibrio calidad/costo. Para gastar aún menos,
+            # cambia el modelo a claude-haiku-4-5-20251001
+            claude_args: "--model claude-sonnet-4-6 --max-turns 15"
