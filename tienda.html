@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5VQJH72CD2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5VQJH72CD2');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda — AD Curundú</title>
+  <meta name="description" content="Tienda oficial de Asociación Deportiva Curundú. Lleva los colores de ADC: gorras, camisetas y más. Cada compra apoya el deporte, la educación y la nutrición de niños en Curundú, Panamá.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://adcurundu.org/tienda.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Tienda oficial de AD Curundú">
+  <meta property="og:description" content="Lleva los colores de ADC. Cada compra apoya el deporte, la educación y la nutrición de niños en Curundú, Panamá.">
+  <meta property="og:image" content="https://adcurundu.org/assets/img/adc-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_PA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tienda oficial de AD Curundú">
+  <meta name="twitter:description" content="Lleva los colores de ADC. Cada compra apoya a los jóvenes de Curundú.">
+  <meta name="twitter:image" content="https://adcurundu.org/assets/img/adc-logo.png">
+  <meta property="og:url" content="https://adcurundu.org/tienda.html">
+  <meta property="og:site_name" content="Asociación Deportiva Curundú">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Store hero — green gradient (matches donar.html treatment) ── */
+    .store-hero {
+      position:relative; padding-top:var(--header-h);
+      min-height:360px; display:flex; align-items:flex-end;
+      background:linear-gradient(135deg,#064d2a 0%,#0a6e3c 60%,#0d8a4c 100%);
+      overflow:hidden;
+    }
+    .store-hero::before {
+      content:''; position:absolute; inset:0;
+      background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .store-hero .page-hero__content { position:relative; z-index:2; }
+    .store-hero .page-hero__label { color:rgba(255,255,255,0.7); }
+    .store-hero .page-hero__title { color:var(--white); }
+
+    /* ── Product grid (centers a single card; scales to a row if more added) ── */
+    .product-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 340px));
+      justify-content:center;
+      gap:2rem;
+    }
+
+    /* ── Merch info bar ── */
+    .merch-note {
+      background:var(--green-pale);
+      border-top:1px solid rgba(43,173,109,0.2);
+      border-bottom:1px solid rgba(43,173,109,0.2);
+      padding:0.95rem 4vw;
+    }
+    .merch-note__inner {
+      max-width:var(--max-w); margin:0 auto;
+      display:flex; align-items:center; justify-content:center; gap:0.6rem;
+      text-align:center; color:var(--green-dark);
+      font-family:var(--font-h); font-weight:600; font-size:0.92rem; letter-spacing:0.01em;
+    }
+    .merch-note__inner svg { width:20px; height:20px; flex-shrink:0; fill:var(--green-dark); }
+    .product-card {
+      display:flex; flex-direction:column;
+      background:var(--white); border:1px solid var(--border);
+      border-radius:var(--radius); overflow:hidden;
+      box-shadow:0 4px 24px rgba(0,0,0,0.07);
+      transition:transform var(--t), box-shadow var(--t);
+    }
+    .product-card:hover { transform:translateY(-4px); box-shadow:0 12px 36px rgba(0,0,0,0.12); }
+
+    /* Image area — light backdrop like Bonfire product thumbs, plus a
+       graceful placeholder shown until the real photo file is added. */
+    .product-card__imgwrap {
+      position:relative; display:block;
+      aspect-ratio:1/1; background:var(--light);
+      overflow:hidden;
+    }
+    .product-card__imgwrap img {
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; transition:transform 0.5s ease;
+    }
+    .product-card:hover .product-card__imgwrap img { transform:scale(1.04); }
+    .product-card__placeholder {
+      position:absolute; inset:0; display:flex; flex-direction:column;
+      align-items:center; justify-content:center; gap:0.4rem;
+      background:var(--green-pale); color:var(--green-dark);
+      font-family:var(--font-h); text-align:center; padding:1rem;
+    }
+    .product-card__placeholder span { font-size:0.72rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; opacity:0.75; }
+    .product-card__placeholder strong { font-size:1.05rem; font-weight:700; }
+
+    .product-card__body { padding:1.25rem 1.35rem 1.4rem; display:flex; flex-direction:column; flex:1; }
+    .product-card__label {
+      font-family:var(--font-h); font-size:0.7rem; font-weight:600;
+      letter-spacing:0.1em; text-transform:uppercase; color:var(--green);
+      margin-bottom:0.35rem;
+    }
+    .product-card__title {
+      font-family:var(--font-h); font-size:1.1rem; font-weight:700;
+      line-height:1.2; margin-bottom:0.7rem;
+    }
+    .product-card__meta {
+      display:flex; align-items:center; justify-content:space-between;
+      gap:1rem; margin-bottom:1.1rem;
+    }
+    .product-card__price {
+      font-family:var(--font-h); font-size:1.35rem; font-weight:700; color:var(--green-dark);
+    }
+    .product-card__price small { font-size:0.72rem; font-weight:500; color:var(--gray); letter-spacing:0.03em; }
+    .product-card__swatches { display:flex; gap:0.35rem; }
+    .swatch {
+      width:15px; height:15px; border-radius:50%;
+      border:1.5px solid rgba(0,0,0,0.12); box-shadow:inset 0 0 0 1.5px var(--white);
+    }
+    .product-card__cta { margin-top:auto; text-align:center; width:100%; padding:0.7rem 1rem; font-size:0.8rem; }
+
+    /* ── "Cómo funciona" trust strip ── */
+    .store-steps { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:1.5rem; }
+    .store-step { display:flex; gap:1rem; align-items:flex-start; }
+    .store-step__num {
+      flex-shrink:0; width:38px; height:38px; border-radius:50%;
+      background:var(--green-pale); color:var(--green-dark);
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--font-h); font-weight:700; font-size:1rem;
+    }
+    .store-step h4 { font-family:var(--font-h); font-size:1rem; font-weight:700; margin-bottom:0.25rem; }
+    .store-step p { font-size:0.88rem; color:var(--gray); line-height:1.6; }
+
+    @media(max-width:640px){
+      .product-grid { grid-template-columns:repeat(auto-fill, minmax(150px,1fr)); gap:1.1rem; }
+      .product-card__body { padding:1rem 1rem 1.15rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-logo"><a href="index.html"><img src="https://adcurundu.org/assets/img/adc-logo.png" alt="AD Curundú" loading="eager"></a></div>
+      <nav class="header-nav">
+        <a href="acercadeadc.html">Acerca de ADC</a>
+        <a href="calendario.html">Calendario</a>
+        <a href="participar.html">Participar</a>
+        <a href="contactanos.html">Contáctanos</a>
+        <a href="blog.html">Blog</a>
+        <a href="faq.html">FAQ</a>
+        <a href="tienda.html">Tienda</a>
+        <a href="donar.html" class="nav-cta">Apoyar</a>
+      </nav>
+      <div class="lang-toggle"><button class="lang-btn active" id="lang-es" onclick="adcSetLang('es')" aria-label="Español">ES</button><span class="lang-sep">|</span><button class="lang-btn" id="lang-en" onclick="adcSetLang('en')" aria-label="English">EN</button></div>
+      <div id="google_translate_element"></div>
+      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="acercadeadc.html">Acerca de ADC</a>
+    <a href="calendario.html">Calendario</a>
+    <a href="participar.html">Participar</a>
+    <a href="contactanos.html">Contáctanos</a>
+    <a href="blog.html">Blog</a>
+    <a href="faq.html">FAQ</a>
+    <a href="tienda.html">Tienda</a>
+    <a href="donar.html" class="nav-cta">Apoyar</a>
+  </nav>
+
+  <main id="main">
+    <div class="store-hero">
+      <div class="page-hero__content">
+        <p class="page-hero__label">Nuestro barrio · Nuestro equipo</p>
+        <h1 class="page-hero__title">Tienda oficial</h1>
+      </div>
+    </div>
+
+    <!-- Merch info bar -->
+    <div class="merch-note">
+      <p class="merch-note__inner">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+        <span>¡Consigue mercancía con descuento en nuestros partidos y eventos!</span>
+      </p>
+    </div>
+
+    <!-- Intro -->
+    <section class="section section--light" style="padding-top:3.5rem; padding-bottom:3.5rem;">
+      <div class="section-inner" style="text-align:center;">
+        <p class="section-label reveal" style="justify-content:center;">Viste los colores de ADC</p>
+        <div class="section-divider reveal" style="max-width:520px; margin:0 auto 1.75rem;"></div>
+        <h2 class="sub-heading reveal" style="margin-bottom:0.85rem;">Cada compra apoya a los jóvenes de Curundú</h2>
+        <p class="body-text reveal" style="max-width:60ch; margin:0 auto;">Nuestra tienda oficial está impulsada por <strong>Bonfire</strong>. Cada producto se produce y se envía de forma segura, y las ganancias apoyan directamente el deporte, la educación y la nutrición de más de 130 atletas de ADC.</p>
+      </div>
+    </section>
+
+    <!-- Product grid -->
+    <section class="section" style="padding-top:3rem;">
+      <div class="section-inner">
+        <div class="product-grid">
+
+          <!-- Product — Printed Pigment Dye Baseball Cap -->
+          <article class="product-card reveal">
+            <a href="https://www.bonfire.com/store/asociacion-deportiva-curundu/" target="_blank" rel="noopener" class="product-card__imgwrap store-link" aria-label="Ver Gorra Pigment Dye en Bonfire">
+              <div class="product-card__placeholder"><span>Foto del producto</span><strong>Gorra Pigment Dye</strong></div>
+              <img src="assets/store/gorra.jpg" alt="Gorra Pigment Dye estampada de AD Curundú, gris carbón con el escudo verde de ADC" loading="lazy" onerror="this.style.display='none'">
+            </a>
+            <div class="product-card__body">
+              <p class="product-card__label">Gorra</p>
+              <h3 class="product-card__title">Gorra Pigment Dye estampada</h3>
+              <div class="product-card__meta">
+                <span class="product-card__price">$26.99 <small>USD</small></span>
+                <span class="product-card__swatches" aria-label="Colores disponibles">
+                  <span class="swatch" style="background:#1b1b1b;" title="Negro"></span>
+                  <span class="swatch" style="background:#86835c;" title="Verde oliva"></span>
+                  <span class="swatch" style="background:#f4f4f4;" title="Blanco"></span>
+                </span>
+              </div>
+              <a href="https://www.bonfire.com/store/asociacion-deportiva-curundu/" target="_blank" rel="noopener" class="btn btn--primary product-card__cta store-link">Comprar en Bonfire →</a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Full store CTA -->
+        <div style="text-align:center; margin-top:3rem;" class="reveal">
+          <a href="https://www.bonfire.com/store/asociacion-deportiva-curundu/" target="_blank" rel="noopener" class="btn btn--outline store-link">Ver toda la tienda en Bonfire →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section section--light">
+      <div class="section-inner">
+        <p class="section-label reveal">Cómo funciona</p>
+        <div class="section-divider reveal"></div>
+        <div class="store-steps reveal">
+          <div class="store-step">
+            <div class="store-step__num">1</div>
+            <div><h4>Elige tu producto</h4><p>Escoge tu gorra y el color que más te guste.</p></div>
+          </div>
+          <div class="store-step">
+            <div class="store-step__num">2</div>
+            <div><h4>Compra segura en Bonfire</h4><p>Al hacer clic en "Comprar" completas tu pedido en Bonfire, nuestra plataforma oficial de tienda.</p></div>
+          </div>
+          <div class="store-step">
+            <div class="store-step__num">3</div>
+            <div><h4>Apoyas a Curundú</h4><p>Recibes tu producto en casa y las ganancias apoyan directamente a los jóvenes de ADC.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other ways to help -->
+    <section class="section section--green" style="padding:4.5rem 4vw; text-align:center;">
+      <div class="section-inner">
+        <h2 class="display-heading reveal" style="color:var(--white);">¿Quieres apoyar más?</h2>
+        <p class="reveal" style="color:rgba(255,255,255,0.85); margin:1rem auto 2rem; max-width:50ch; font-size:1.05rem;">Comprar en la tienda es solo una forma de ayudar. También puedes donar o unirte como voluntario.</p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;" class="reveal">
+          <a href="donar.html" class="btn btn--white">Donar ahora</a>
+          <a href="participar.html" class="btn btn--outline-white">Ser voluntario</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="sponsors-bar">
+    <div class="sponsors-inner">
+      <a href="#" class="sponsor-logo" aria-label="BY"><img src="assets/img/sponsor-by.jpg" alt="BY" loading="lazy"></a>
+      <a href="https://www.afrolatinxtours.com" target="_blank" rel="noopener" class="sponsor-logo" aria-label="Afrolatinx Travel"><img src="assets/img/sponsor-afrolatinx.jpg" alt="Afrolatinx Travel" loading="lazy"></a>
+      <a href="https://www.linkedin.com/company/gr-enterprise-s-a/" target="_blank" rel="noopener" class="sponsor-logo" aria-label="GR Enterprise S.A."><img src="assets/img/sponsor-cr.jpg" alt="GR Enterprise S.A." loading="lazy"></a>
+      <a href="https://aquacristalina.com/" target="_blank" rel="noopener" class="sponsor-logo" aria-label="Cristalina"><img src="assets/img/sponsor-cristalina.jpg" alt="Cristalina" loading="lazy"></a>
+      <a href="https://dukeengage.duke.edu" target="_blank" rel="noopener" class="sponsor-logo" aria-label="Duke Engage"><img src="assets/img/sponsor-dukeengage.png" alt="Duke Engage" loading="lazy"></a>
+    </div>
+  </div>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-hashtag"><h3>#nuestroequipo</h3></div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/adcurundu/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 64 64"><path d="M46.91,25.816c-0.073-1.597-0.326-2.687-0.697-3.641c-0.383-0.986-0.896-1.823-1.73-2.657c-0.834-0.834-1.67-1.347-2.657-1.73c-0.954-0.371-2.045-0.624-3.641-0.697C36.585,17.017,36.074,17,32,17s-4.585,0.017-6.184,0.09c-1.597,0.073-2.687,0.326-3.641,0.697c-0.986,0.383-1.823,0.896-2.657,1.73c-0.834,0.834-1.347,1.67-1.73,2.657c-0.371,0.954-0.624,2.045-0.697,3.641C17.017,27.415,17,27.926,17,32c0,4.074,0.017,4.585,0.09,6.184c0.073,1.597,0.326,2.687,0.697,3.641c0.383,0.986,0.896,1.823,1.73,2.657c0.834,0.834,1.67,1.347,2.657,1.73c0.954,0.371,2.045,0.624,3.641,0.697C27.415,46.983,27.926,47,32,47s4.585-0.017,6.184-0.09c1.597-0.073,2.687-0.326,3.641-0.697c0.986-0.383,1.823-0.896,2.657-1.73c0.834-0.834,1.347-1.67,1.73-2.657c0.371-0.954,0.624-2.045,0.697-3.641C46.983,36.585,47,36.074,47,32S46.983,27.415,46.91,25.816z M32,37c-2.761,0-5-2.239-5-5c0-2.761,2.239-5,5-5s5,2.239,5,5C37,34.761,34.761,37,32,37z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@ADCurundu" target="_blank" rel="noopener" aria-label="YouTube de ADC">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/people/Asociacion-Deportiva-Curundu/100068921256288/" target="_blank" rel="noopener" aria-label="Facebook de ADC">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
+      <p class="footer-copy">© 2026 Asociación Deportiva Curundú · Curundú, Ciudad de Panamá · Fundada en 2014</p>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script>
+    // GA4 click tracking for store purchases
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.store-link').forEach(function(el) {
+        el.addEventListener('click', function() {
+          if (typeof gtag === 'function') gtag('event', 'store_click', {event_category: 'engagement', event_label: 'bonfire'});
+        });
+      });
+    });
+  </script>
+  <script src="lang.js"></script>
+  <script src="https://translate.googleapis.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+  <script src="chatbot.js"></script>
+</body>
+</html>
