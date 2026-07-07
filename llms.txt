@@ -1,7 +1,7 @@
 # Asociación Deportiva Curundú (ADC)
 
 ## What ADC is
-Asociación Deportiva Curundú (ADC) is a 100% volunteer-led nonprofit youth soccer foundation based in the Curundú neighborhood of Panama City, Panama. Founded in 2014, ADC transforms lives through three integrated pillars: sport, education, and nutrition. ADC has served more than 1,200 young people since its founding and currently has 130+ active athletes. Five ADC athletes have represented Panama on the national team.
+Asociación Deportiva Curundú (ADC) is a 100% volunteer-led nonprofit youth soccer foundation based in the Curundú neighborhood of Panama City, Panama. Founded in 2014, ADC transforms lives through three integrated pillars: sport, education, and nutrition. ADC has served more than 1,200 young people since its founding and currently has 75+ active athletes. Five ADC athletes have represented Panama on the national team.
 
 ## Mission
 To empower children and youth in Curundú through free access to organized football, academic support, and healthy nutrition — regardless of their socioeconomic background.
@@ -15,7 +15,7 @@ To empower children and youth in Curundú through free access to organized footb
 - Founded: 2014
 - Location: Curundú, Panama City, Panama; training at Ciudad del Saber
 - Youth served since 2014: 1,200+
-- Active athletes: 130+
+- Active athletes: 75+
 - National team players produced: 5
 - Years of operation: 12
 - Organization type: 100% nonprofit, volunteer-led
