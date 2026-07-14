@@ -22,7 +22,7 @@ archivos `.html`/`.css`/`.js` se publican solos al hacer merge a `main`.
 - **Teléfono/correo oficiales:** teléfono `+507 6388-0003`, correo `adcurundu@gmail.com`,
   Instagram `@adcurundu`. Mantén estos datos idénticos en todo el sitio.
 - **Barra de patrocinadores:** debe tener el **mismo orden en todas las páginas**:
-  BY, Afrolatino Travel, CR/GR Enterprise, Cristalina, Duke Engage.
+  BY, Afrolatino Travel, CR/GR Enterprise, Duke Engage.
 - **No toques** nada relacionado con `/admin`, claves de API ni secretos. Si una tarea
   requiere un secreto, detente y avisa en el PR.
 
